@@ -1,0 +1,2 @@
+class DomainPrice < ApplicationRecord
+end
