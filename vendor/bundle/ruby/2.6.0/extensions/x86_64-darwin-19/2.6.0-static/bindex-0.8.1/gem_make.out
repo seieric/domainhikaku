@@ -1,0 +1,15 @@
+current directory: /Users/seiya/repos/domainhikaku/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/seiya/.rbenv/versions/2.6.3/bin/ruby -I /Users/seiya/.rbenv/versions/2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20191207-19382-12ax0d3.rb extconf.rb
+creating Makefile
+
+current directory: /Users/seiya/repos/domainhikaku/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/seiya/repos/domainhikaku/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/seiya/repos/domainhikaku/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20191207-19382-15r68tk/skiptrace/internal
