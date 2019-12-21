@@ -1,20 +1,7 @@
-#カラムpriceが負になってはいけない
-class CannotBeNegativeValidator < ActiveModel::Validator
-  def validate(record)
-    if record.price.present? && record.price < 0
-      record.errors[:price] << ":price cannot be negative"
-    end
-  end
-end
-
 class DomainPrice < ApplicationRecord
+  #30文字以下
   validates(:domain, presence: true, length: {maximum: 30})
-  validates(:price, presence: true, cannot_be_negative: true) #負の値は禁止
+  #Integer型のみ、0より大きい
+  validates(:price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0})
   validates(:registrar, presence: true)
-
-  def cannot_be_negative
-    if price.present? && price < 0
-      errors.add(:price, ":price cannot be negative")
-    end
-  end
 end

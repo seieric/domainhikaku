@@ -32,6 +32,11 @@ class DomainPriceTest < ActiveSupport::TestCase
     assert_not @domain.valid?
   end
 
+  test "price should be integer" do
+    @domain.price = "hhkdhjfnci"
+    assert_not @domain.valid?
+  end
+
   test "price should be not be negative" do
     @domain.price = -10
     assert_not @domain.valid?
