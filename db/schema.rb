@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_125329) do
+ActiveRecord::Schema.define(version: 2019_12_21_105144) do
 
   create_table "domain_prices", force: :cascade do |t|
-    t.string "domain", null: false
-    t.integer "price", null: false
-    t.string "registrar", null: false
+    t.string "domain"
+    t.integer "price"
+    t.string "registrar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["domain"], name: "index_domain_prices_on_domain"
