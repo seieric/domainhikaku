@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_105144) do
+ActiveRecord::Schema.define(version: 2019_12_07_125329) do
 
   create_table "domain_prices", force: :cascade do |t|
     t.string "domain"
-    t.integer "price"
+    t.integer "register_price"
+    t.integer "update_price"
     t.string "registrar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["domain"], name: "index_domain_prices_on_domain"
+    t.index ["registrar"], name: "index_domain_prices_on_registrar"
   end
 
 end

@@ -5,7 +5,7 @@ class DomainPriceTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @domain = DomainPrice.new(domain: ".org", price: 1300, registrar: "x_domain")
+    @domain = DomainPrice.new(domain: ".org", register_price: 1300, update_price: 1300, registrar: "x_domain")
   end
 
   test "should be valid" do
@@ -17,8 +17,13 @@ class DomainPriceTest < ActiveSupport::TestCase
     assert_not @domain.valid?
   end
 
-  test "price shoud be valid" do
-    @domain.price = ""
+  test "register_price should be valid" do
+    @domain.register_price = ""
+    assert_not @domain.valid?
+  end
+
+  test "update_price should be valid" do
+    @domain.update_price = ""
     assert_not @domain.valid?
   end
 
@@ -32,13 +37,15 @@ class DomainPriceTest < ActiveSupport::TestCase
     assert_not @domain.valid?
   end
 
-  test "price should be integer" do
-    @domain.price = "hhkdhjfnci"
+  test "*_price should be integer" do
+    @domain.register_price = "hhkdhjfnci"
+    @domain.update_price =
     assert_not @domain.valid?
   end
 
-  test "price should be not be negative" do
-    @domain.price = -10
+  test "*_price should be not be negative" do
+    @domain.register_price = -10
+    @domain.update_price = -10
     assert_not @domain.valid?
   end
 
