@@ -18,7 +18,7 @@ class DataRegister
     registrars = [
       "x_domain",
       "value_domain",
-      "x_domain"
+      "muumuu_domain"
     ]
     registrars[int]
   end
