@@ -33,11 +33,16 @@ namespace :x_domain do
       update_list << price
     end
 
-    p register_prices = domain_list.zip(register_list).to_h
-    p update_prices = domain_list.zip(update_list).to_h
+    register_prices = domain_list.zip(register_list).to_h
+    update_prices = domain_list.zip(update_list).to_h
+
+    prices = update_prices.merge(register_prices)  do |key, updated, registered|
+      [registered, updated]
+    end
+
+    p prices
 
     register = DataRegister.new
-    register.start(register_prices, "x_domain", "register")
-    register.start(update_prices, "x_domain", "update")
+    register.start(prices, 0)
   end
 end
