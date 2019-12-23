@@ -3,10 +3,13 @@ class DataRegister
   def start(hash, rgstr_no) #hashの構造=>{".com"=>[1200,1300]},rgstr=>Int
     registrar = self.config(rgstr_no)
     hash.each do |domain, price|
+      next if price[-1] == 0 || price[0] == 0
       begin
           domain_price = DomainPrice.find_or_initialize_by(registrar: registrar, domain: domain)
           domain_price.update_attributes!(update_price: price[-1], register_price: price[0])
-          domain_price.save!
+          p domain
+          p price[0]
+          p price[-1]
       rescue ActiveRecord::RecordInvalid => e
         pp e.record.errors
         next
@@ -18,7 +21,8 @@ class DataRegister
     registrars = [
       "x_domain",
       "value_domain",
-      "muumuu_domain"
+      "muumuu_domain",
+      "onamae_com"
     ]
     registrars[int]
   end
