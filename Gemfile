@@ -22,15 +22,16 @@ gem 'jbuilder', '~> 2.7'
 
 # User Additions
 gem 'mechanize'
+# レンダリングが必要なスクレイピング用+テスト用
+gem 'selenium-webdriver'
+#ページネーション
+gem 'kaminari'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
-# レンダリングが必要なスクレイピング用+テスト用
-gem 'selenium-webdriver'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

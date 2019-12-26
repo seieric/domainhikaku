@@ -15,6 +15,8 @@ module Domainhikaku
 
     config.autoload_paths += %W(#{config.root}/lib)
 
+    config.i18n.default_locale = :ja #日本語をデフォルトに
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
