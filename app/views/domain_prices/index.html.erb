@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @prices.each do |p|%>
+    <% @price.each do |p|%>
     <tr>
       <th scope="row"><%= p.domain %></th>
       <td><%= p.register_price %></td>
@@ -18,4 +18,4 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @prices %>
+<%= paginate @price %>
