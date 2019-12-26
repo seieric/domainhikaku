@@ -1,7 +1,7 @@
 namespace :value_domain do
   desc "バリュードメインから料金を取得"
 
-  task :get_prices => :environment do
+  task :get => :environment do
     #各ドメイン料金を1配列に集約
     jp = jp_prices
     gtld = gtld_prices
@@ -16,8 +16,8 @@ namespace :value_domain do
 
     p prices
 
-    register = DataRegister.new
-    register.start(prices, 1)
+    #register = DataRegister.new
+    #register.start(prices, 1)
   end
 
   @agent = Mechanize.new
@@ -41,7 +41,7 @@ namespace :value_domain do
         next
       end
       if domain.get_attribute(:id) == "jp_puny"
-        domain = "(日本語).jp"
+        domain = "/ja-jp/.jp"
         domain_list << domain
         next
       end
@@ -107,7 +107,7 @@ namespace :value_domain do
       end
       if domain.include?("（日本語）")
         domain = domain.gsub("（日本語）","")
-        domain = "(日本語)" + domain
+        domain = "/ja-jp/" + domain
       end
 
       domain_list << domain
@@ -116,7 +116,7 @@ namespace :value_domain do
     prices.each_with_index do |price, i|
       break if i > 9
       next if i % 3 != 0 || i == 6
-      update_list << price.inner_text.gsub(",","").gsub("新規 ","").to_i
+      update_list << price.inner_text.gsub(/[^0-9]/,"").to_i
     end
 
     update_prices = domain_list.zip(update_list).to_h

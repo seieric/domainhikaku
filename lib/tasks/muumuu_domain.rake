@@ -1,7 +1,7 @@
 namespace :muumuu_domain do
   desc "ムームドメインから料金を取得"
 
-  task :get_prices => :environment do
+  task :get => :environment do
     agent = Mechanize.new
     page = agent.get("https://muumuu-domain.com/domain/price")
 
@@ -32,7 +32,7 @@ namespace :muumuu_domain do
     end
 
     p prices
-
+    
     register = DataRegister.new
     register.start(prices, 2)
   end
