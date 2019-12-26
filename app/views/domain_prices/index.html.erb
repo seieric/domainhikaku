@@ -1,5 +1,5 @@
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>ドメイン</th>
       <th>登録料金</th>
@@ -10,7 +10,7 @@
   <tbody>
     <% @prices.each do |p|%>
     <tr>
-      <td><%= p.domain %></td>
+      <th scope="row"><%= p.domain %></th>
       <td><%= p.register_price %></td>
       <td><%= p.update_price %></td>
       <td><%= p.registrar %></td>
