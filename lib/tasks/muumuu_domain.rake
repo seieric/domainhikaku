@@ -30,10 +30,7 @@ namespace :muumuu_domain do
     prices = update_prices.merge(register_prices)  do |key, updated, registered|
       [registered, updated]
     end
-
-    p prices
-    
-    register = DataRegister.new
-    register.start(prices, 2)
+    r = DataRegister.new
+    r.start(prices, 2)
   end
 end

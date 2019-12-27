@@ -14,10 +14,8 @@ namespace :value_domain do
       [registered, updated]
     end
 
-    p prices
-
-    #register = DataRegister.new
-    #register.start(prices, 1)
+    r = DataRegister.new
+    r.start(prices, 1)
   end
 
   @agent = Mechanize.new

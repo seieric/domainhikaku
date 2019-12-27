@@ -1,7 +1,7 @@
 namespace :onamae_com do
   desc "お名前.comから料金を取得する"
 
-  task :gets do
+  task :get do
     agent = Mechanize.new
     agent.user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
     page = agent.get("https://www.onamae.com/service/d-regist/price.html")
@@ -36,7 +36,11 @@ namespace :onamae_com do
 
     register_prices = domain_list.zip(price_list).to_h
 
-    session = Selenium::WebDriver.for :safari
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.binary = ENV.fetch(GOOGLE_CHROME_SHIM)
+    options.add_argument('headless')
+    options.add_argument('disable-gpu')
+    session = Selenium::WebDriver.for :chrome,options: options
     session.navigate.to "https://www.onamae.com/service/d-renew/price.html#gtld"
     records = session.find_elements(:css, "table.tablePricing tr")
     session.quit
@@ -60,11 +64,10 @@ namespace :onamae_com do
     update_prices = Hash[*prices.flatten]
 
     master_prices = update_prices.merge(register_prices) do |key, update, register|
-      next if update == 0 || register == 0
       [register, update]
     end
 
-    db = DataRegister.new
-    db.start(master_prices, 3)
+    r = DataRegister.new
+    r.start(master_prices, 3)
   end
 end
