@@ -37,7 +37,7 @@ namespace :onamae_com do
     register_prices = domain_list.zip(price_list).to_h
 
     options = Selenium::WebDriver::Chrome::Options.new
-    options.binary = ENV.fetch(GOOGLE_CHROME_SHIM)
+    options.binary = ENV.fetch('GOOGLE_CHROME_SHIM')
     options.add_argument('headless')
     options.add_argument('disable-gpu')
     session = Selenium::WebDriver.for :chrome,options: options
