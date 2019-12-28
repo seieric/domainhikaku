@@ -1,5 +1,4 @@
-#各ユーザー定義タスクで使うデーターベース共通処理
-class DataRegister
+class DataRegister #各ユーザー定義タスクで使うデーターベース共通処理
   def start(hash, rgstr_no) #hashの構造=>{".com"=>[1200,1300]},rgstr=>Int
     registrar = self.config(rgstr_no)
     hash.each do |domain, price|
