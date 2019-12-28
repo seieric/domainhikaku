@@ -9,7 +9,8 @@ Things you may want to cover:
 2.6.3
 
 * System dependencies
-
+chromedriver
+Chrome Canary
 * Configuration
 
 * Database creation
