@@ -26,6 +26,8 @@ gem 'mechanize'
 gem 'selenium-webdriver'
 #ページネーション
 gem 'kaminari'
+#Punycode Converter
+gem 'simpleidn'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

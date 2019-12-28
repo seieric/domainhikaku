@@ -190,6 +190,8 @@ GEM
     selenium-webdriver (3.142.6)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    simpleidn (0.1.1)
+      unf (~> 0.1.4)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -250,6 +252,7 @@ DEPENDENCIES
   rails (~> 6.0.1)
   sass-rails (>= 6)
   selenium-webdriver
+  simpleidn
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)
