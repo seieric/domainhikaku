@@ -1,21 +1,27 @@
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th>ドメイン</th>
-      <th>登録料金</th>
-      <th>更新料金</th>
-      <th>レジストラ（登録業者）</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @price.each do |p|%>
-    <tr>
-      <th scope="row"><%= p.domain %></th>
-      <td><%= p.register_price %></td>
-      <td><%= p.update_price %></td>
-      <td><%= p.registrar %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @price %>
+<% provide(:title, "価格一覧") %>
+<div class="container">
+  <div class="pricingTable">
+    <h1>価格一覧</h1>
+    <table class="table border rounded">
+      <thead>
+        <tr>
+          <th>ドメイン</th>
+          <th>登録料金</th>
+          <th>更新料金</th>
+          <th>レジストラ（登録業者）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @price.each do |p|%>
+        <tr>
+          <th scope="row" class="th-dom"><%= p.domain %></th>
+          <td class="td-price"><%= p.register_price %></td>
+          <td class="td-price"><%= p.update_price %></td>
+          <td class="td-rgstr"><%= p.registrar %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @price %>
+  </div>
+</div>
