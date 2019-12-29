@@ -38,7 +38,7 @@ namespace :onamae_com do
     bin_path = ENV.fetch("GOOGLE_CHROME_BIN")
     options = Selenium::WebDriver::Chrome::Options.new(
       binary: bin_path,
-      args: ["--headless", "--disable-gpu", "window-size=1280x800"]
+      args: ["--headless", "--disable-gpu", "--no-sandbox", "window-size=1280x800", "--remote-debugging-port=9222"]
     )
     session = Selenium::WebDriver.for :chrome, options: options
     session.navigate.to "https://www.onamae.com/service/d-renew/price.html#gtld"
