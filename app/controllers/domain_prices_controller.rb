@@ -1,9 +1,6 @@
 class DomainPricesController < ApplicationController
   def index
-    @price = DomainPrice.page(params[:page]).per(10)
-  end
-
-  def edit
-    @price = DomainPrice.find(:id)
+    @price = DomainPrice.page(params[:page]).per(10).search(params[:q])
+    @search = params[:q]
   end
 end

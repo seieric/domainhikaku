@@ -19,6 +19,6 @@ module DomainPricesHelper
     list[registrar]
   end
   def show_domain(domain)
-    domain.gsub("/ja-jp/","（日本語）").gsub("/prefectures/ja-jp/","（都道府県名日本語）").gsub("/prefectures/","（都道府県名）")
+    domain.gsub("/prefectures/ja-jp/","(都道府県名日本語)").gsub("/prefectures/","(都道府県名)").gsub("/ja-jp/","(日本語)")
   end
 end
