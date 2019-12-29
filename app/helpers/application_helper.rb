@@ -9,4 +9,9 @@ module ApplicationHelper
       page_title + ' | ' + base_title
     end
   end
+
+#bootstrapで現在のページを濃く表示
+  def class_active?(path)
+    "active" if current_page?(path)
+  end
 end

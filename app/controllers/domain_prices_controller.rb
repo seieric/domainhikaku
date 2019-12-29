@@ -1,6 +1,6 @@
 class DomainPricesController < ApplicationController
   def index
-    @price = DomainPrice.page(params[:page]).per(13)
+    @price = DomainPrice.page(params[:page]).per(10)
   end
 
   def edit

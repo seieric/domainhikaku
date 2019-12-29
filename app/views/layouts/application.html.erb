@@ -23,8 +23,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><%= link_to "Home", root_path, class: "nav-link" %></li>
-            <li class="nav-item"><%= link_to "Help", "#",class: "nav-link" %></li>
+            <li class="nav-item <%= class_active?(root_path)%>"><%= link_to "トップ", root_path, class: "nav-link" %></li>
+            <li class="nav-item <%= class_active?(prices_path) %>"><%= link_to "料金一覧", prices_path, class: "nav-link" %></li>
+            <li class="nav-item <%= class_active?("#") %>"><%= link_to "ヘルプ", "#",class: "nav-link" %></li>
           </ul>
         </div>
       </nav>
@@ -37,7 +38,7 @@
           <%= link_to "利用規約", "#", class: "nav-link nav-item  text-white" %>
           <%= link_to "プライバシーポリシー", "#", class: "nav-link nav-item  text-white" %>
           <%= link_to "お問い合わせ", "#", class: "nav-link nav-item  text-white" %>
-          <span class="navbar-text text-white">&copy; 2020 最安ドメイン比較.com by せいえりく</span>
+          <small class="navbar-text">&copy; 2020 最安ドメイン比較.com by せいえりく</small>
         </div>
       </nav>
     </footer>
