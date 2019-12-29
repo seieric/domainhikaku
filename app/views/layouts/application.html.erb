@@ -14,7 +14,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body class="d-flex flex-column" style="min-height: 100vh;">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <%= link_to "最安ドメイン比較", root_path, class: "navbar-brand" %>
@@ -33,7 +33,7 @@
     <div class="container">
       <%= yield %>
     </div>
-    <footer class="footer bg-light">
+    <footer class="footer mt-auto bg-light">
       <nav class="navbar navbar-light bg-light">
         <div class="navbar-nav">
           <%= link_to "このサイトについて", about_path, class: "nav-link nav-item" %>

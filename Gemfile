@@ -30,6 +30,8 @@ gem 'kaminari'
 gem 'simpleidn'
 # Use chart.js via chartkick(グラフ描画)
 gem 'chartkick'
+# ドメイン解析用
+gem 'public_suffix'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
