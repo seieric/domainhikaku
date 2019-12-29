@@ -35,9 +35,9 @@ namespace :onamae_com do
     end
 
     register_prices = domain_list.zip(price_list).to_h
-
+    bin_path = ENV.fetch("GOOGLE_CHROME_BIN")
     options = Selenium::WebDriver::Chrome::Options.new(
-      binary: "/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary",
+      binary: bin_path,
       args: ["--headless", "--disable-gpu", "window-size=1280x800"]
     )
     session = Selenium::WebDriver.for :chrome, options: options
