@@ -28,6 +28,8 @@ gem 'selenium-webdriver'
 gem 'kaminari'
 #Punycode Converter
 gem 'simpleidn'
+# Use chart.js via chartkick(グラフ描画)
+gem 'chartkick'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
