@@ -1,6 +1,7 @@
 # Common settings for chartkick
 Chartkick.options = {
-  height: '400px',
+  height: '600px',
+  width: '700px',
   curve: false,
   library: {
     layout: {
