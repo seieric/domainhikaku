@@ -1,7 +1,6 @@
-require __dir__ + '/env/api_keys'
 class GoDaddy
   @headers = {
-    "Authorization" => "sso-key #{API_KEY}:#{API_SECRET}",
+    "Authorization" => "sso-key #{ENV.fetch("GODADDY_API_KEY")}:#{ENV.fetch("GODADDY_API_SECRET")}",
     "Accept" => "applicaton/json"
   }
   def self.is_available?(domain)
