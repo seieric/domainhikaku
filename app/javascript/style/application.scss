@@ -2,8 +2,27 @@
 
 td, th{
   width: auto;
+  color: #808080;
 }
 
 header{
   margin-bottom: 10px;
+  background-color: #F2CB05;
+}
+footer{
+  background-color: #F2EB8D;
+}
+
+h1{
+  color: #808080;
+}
+
+.tablePricing{
+  width: auto;
+}
+.btnMain{
+  background-color: #F2E205;
+}
+.btnMain:hover{
+  background-color: #F2EB8D;
 }

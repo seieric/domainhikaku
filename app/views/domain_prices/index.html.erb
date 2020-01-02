@@ -4,10 +4,10 @@
   <%= form_tag(prices_path, method: :get) do %>
     <div class="form-group">
       <%= text_field_tag :q, @search %>
-      <%= submit_tag '検索', :name => nil, class: "btn btn-primary" %>
+      <%= submit_tag '検索', :name => nil, class: "btn btnMain" %>
     </div>
   <% end %>
-  <table class="table border rounded">
+  <table class="table border rounded-lg tablePricing">
     <thead>
       <tr>
         <th>ドメイン</th>

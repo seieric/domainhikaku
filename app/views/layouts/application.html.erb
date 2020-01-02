@@ -16,8 +16,8 @@
 
   <body class="d-flex flex-column" style="min-height: 100vh;">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <%= link_to "最安ドメイン比較", root_path, class: "navbar-brand" %>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <%= link_to "最安ドメイン比較", root_path, class: "navbar-brand text-white" %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,8 +33,8 @@
     <div class="container">
       <%= yield %>
     </div>
-    <footer class="footer mt-auto bg-light">
-      <nav class="navbar navbar-light bg-light">
+    <footer class="footer mt-auto">
+      <nav class="navbar navbar-light">
         <div class="navbar-nav">
           <%= link_to "このサイトについて", about_path, class: "nav-link nav-item" %>
           <%= link_to "利用規約", terms_path, class: "nav-link nav-item" %>

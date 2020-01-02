@@ -3,9 +3,9 @@ class ChartsController < ApplicationController
   def index
     @domain = PublicSuffix.parse(params[:domain])
     tld = "." + @domain.tld
-    prices = DomainPrice.where(domain: tld)
+    @prices = DomainPrice.where(domain: tld)
     data = []
-    prices.each_with_index do |p, i|
+    @prices.each_with_index do |p, i|
       now = Date.today
       data[i] = {now.strftime("%Y-%m-%d") => p.register_price}
       tmp = Hash.new
