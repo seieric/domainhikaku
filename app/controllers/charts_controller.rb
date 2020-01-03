@@ -1,7 +1,12 @@
 class ChartsController < ApplicationController
   include PublicSuffix #mixin
   def index
-    @domain = PublicSuffix.parse(params[:domain])
+    if PublicSuffix.valid?(params[:domain], default_rule: nil)
+      @domain = PublicSuffix.parse(params[:domain])
+    else
+      @domain = params[:domain] + ".com"
+      @domain = PublicSuffix.parse(@domain)
+    end
     tld = "." + @domain.tld
     @prices = DomainPrice.where(domain: tld)
     data = []

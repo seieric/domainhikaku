@@ -3,7 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 import 'bootstrap'
-import '../style/application.scss'
+import '../src/application.scss'
 
 require("@rails/ujs").start()
 require("turbolinks").start()

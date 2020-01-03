@@ -1,6 +1,8 @@
-<%= form_with(url: search_path, method: :get, local: true) do |form|%>
-  <div class="form-group">
-    <%= form.text_field :domain %>
-    <%= form.submit name: nil, class: "btn btnMain"%>
-  </div>
-<% end %>
+<div class="topPage">
+  <%= form_with(url: search_path, method: :get, local: true) do |form|%>
+    <div class="form-group">
+      <%= form.text_field :domain %>
+      <%= form.submit name: nil, class: "btn btnMain"%>
+    </div>
+  <% end %>
+</div>
