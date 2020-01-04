@@ -1,13 +1,22 @@
 <% provide(:title, "最安値が分かる！ドメイン料金を比較！") %>
-<div class="row align-items-center">
-  <span class="col-12 topDesc lead mx-auto pt-3">
+<div class="row">
+  <div class="lead col mx-auto">
     主要レジストラ（お名前.com・ムームードメイン・バリュードメイン・エックスドメイン）のドメイン価格を比較！
     <br>
     取得可否も分かる！
-  </span>
-  <small class="col-12 pb-3">
+  </div>
+</div>
+<div class="row align-items-center pb-4">
+  <small class="col">
     ※価格を保証するものではありません
   </small>
+</div>
+<div class="row align-items-center">
+  <p class="col">
+    検索は<%= link_to "利用規約", terms_path %>を読み、同意された上でご利用ください。
+  </p>
+</div>
+<div class="row align-items-center">
   <div class="col mx-auto">
     <%= render 'search_form' %>
   </div>

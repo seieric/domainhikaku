@@ -21,13 +21,14 @@ class ChartsController < ApplicationController
       (1..5).each do |j|
         tmp[now.since(j.years).strftime("%Y-%m-%d")] = p.register_price + p.update_price * j
       end
-      tmp["name"] = p.registrar
+
+      tmp["name"] = view_context.show_registrar(p.registrar)
       tmp["domain"] = p.domain
       data[i].merge!(tmp)
     end
     @data = Array.new
     data.each_with_index do |d, i|
-      name = "#{d["name"]} #{d["domain"]}"
+      name = "#{d["domain"]} | #{d["name"]} "
       d.delete("name")
       d.delete("domain")
       @data << {name: name, data: d}

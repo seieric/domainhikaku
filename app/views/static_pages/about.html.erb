@@ -24,15 +24,19 @@
     <p class="lead">そういった希望をかなえることを目指す、ドメインの料金比較を簡単にするサービスです。</p>
     <p class="lead">現在は４つのレジストラにのみ対応していますが、順次増やしていく予定。</p>
   </div>
-  <div class="col-md-4 offset-md-1">
+  <div class="col-md-4 offset-md-1 pt-3">
     <div class="box rounded-lg">
       <%= image_tag 'computer.jpg', class: "img-fluid rounded-lg" %>
     </div>
   </div>
 </div>
+<div class="row pt-5">
+  <p>検索は<%= link_to "利用規約", terms_path %>を読み、同意された上でご利用ください。</p>
+</div>
 <div class="row align-items-center">
-  <span class="lead">さあ検索！</span>
-  <%= render 'search_form' %>
+  <div class="col mx-auto">
+    <%= render 'search_form' %>
+  </div>
 </div>
 <div class="row align-items-center mt-3 mb-3">
   <div class="col">
