@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  domain = ENV.fetch("HOST_ADDR")
+  default from: "admin@#{domain}"
   layout 'mailer'
 end

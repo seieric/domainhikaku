@@ -5,8 +5,6 @@ class StaticPagesController < ApplicationController
   end
   def terms
   end
-  def contact
-  end
   def help
   end
   def policy

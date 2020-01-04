@@ -1,14 +1,12 @@
 require 'test_helper'
 
 class ContactsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get contacts_new_url
-    assert_response :success
+  def setup
+    @base_title = "最安ドメイン検索"
   end
-
-  test "should get create" do
-    get contacts_create_url
+  test "should get contacts" do
+    get contacts_path
     assert_response :success
+    assert_select "title", "お問い合わせ | #{@base_title}"
   end
-
 end
