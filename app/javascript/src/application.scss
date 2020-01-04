@@ -1,4 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+$sub: #eeeeee;
+$main: #000000;
 
 td, th{
   width: auto;
@@ -7,26 +11,22 @@ td, th{
 
 header{
   margin-bottom: 10px;
-  background-color: #F2CB05;
+  background-color: $main;
 }
 footer{
-  background-color: #F2EB8D;
+  background-color: $sub;
 }
 
 h1{
   color: #808080;
 }
-
-div.topPage{
-  background-image: "assets/top_page.jpg";
-  background-size: cover;
+.btnMain{
+  border-color: $main;
+}
+.btnMain:hover{
+  background-color: $main;
+  color: #ffffff;
 }
 .tablePricing{
   width: auto;
-}
-.btnMain{
-  background-color: #F2E205;
-}
-.btnMain:hover{
-  background-color: #F2EB8D;
 }

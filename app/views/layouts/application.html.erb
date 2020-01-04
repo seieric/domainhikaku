@@ -2,14 +2,10 @@
 <html>
   <%= render 'layouts/head' %>
   <body class="d-flex flex-column" style="min-height: 100vh;">
-    <% unless current_page?(root_path) %>
     <%= render 'layouts/header' %>
-    <% end %>
-    <div class="container">
+    <div class="container flex-fill">
       <%= yield %>
     </div>
-    <% unless current_page?(root_path) %>
     <%= render 'layouts/footer' %>
-    <% end %>
   </body>
 </html>
