@@ -13,7 +13,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get about" do
     get about_path
     assert_response :success
-    assert_select "title", "このサイトについて | #{@base_title}"
+    assert_select "title", "About | #{@base_title}"
   end
 
   test "should get terms" do

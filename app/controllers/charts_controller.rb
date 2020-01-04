@@ -1,6 +1,10 @@
 class ChartsController < ApplicationController
   include PublicSuffix #mixin
   def index
+    if params[:domain].empty?
+      redirect_to root_url
+      return
+    end
     if PublicSuffix.valid?(params[:domain], default_rule: nil)
       @domain = PublicSuffix.parse(params[:domain])
     else

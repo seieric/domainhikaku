@@ -1,6 +1,8 @@
 <% provide(:title, "料金一覧") %>
 <div class="pricingTable">
   <h1>料金一覧</h1>
+  <p class="lead">当サイトが使用しているデータです。</p>
+  <small>一定期間キャッシュしているため、最新の価格とは限りません。</small>
   <%= form_tag(prices_path, method: :get) do %>
     <div class="form-group">
       <%= text_field_tag :q, @search %>

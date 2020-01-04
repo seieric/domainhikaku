@@ -3,12 +3,12 @@
 
 $sub: #eeeeee;
 $main: #000000;
+$font-family-base: '-apple-system,Segoe UI,Helvetica Neue,Hiragino Kaku Gothic ProN,"メイリオ",meiryo,sans-serif';
 
 td, th{
   width: auto;
   color: #808080;
 }
-
 header{
   margin-bottom: 10px;
   background-color: $main;
@@ -17,9 +17,6 @@ footer{
   background-color: $sub;
 }
 
-h1{
-  color: #808080;
-}
 .btnMain{
   border-color: $main;
 }
