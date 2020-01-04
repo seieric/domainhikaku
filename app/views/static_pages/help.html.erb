@@ -1,2 +1,109 @@
 <% provide(:title, "ヘルプ") %>
 <h1>ヘルプ</h1>
+<p class="lead" id="accordionHelp">Q＆Aです。</p>
+<div class="accordion mb-3" id="help">
+  <div class="card">
+    <div class="card-header"　id="title-1">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#help-1" aria-expanded="true" aria-controls="help-1">
+          表示された価格とレジストラのホームページでの価格が異なるのですが？
+        </button>
+      </h5>
+    </div>
+    <div id="help-1" class="collapse" aria-labelledby="title-1" data-parent="#accordionHelp">
+      <div class="card-body">
+        過剰なデータ取得によるサービス停止を避けるため、価格をキャッシュしていることが原因であると思われます。時間をあけて検索し直してみてください。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="title-2">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#help-2" aria-expanded="true" aria-controls="help-2">
+          日本語を含むドメインでも検索できますか？
+        </button>
+      </h5>
+    </div>
+    <div id="help-2" class="collapse" aria-labelledby="title-1" data-parent="#accordionHelp">
+      <div class="card-body">
+        はい。検索可能です。しかしながら、日本語ドメインの検索は結果が不正確な場合がございますのでご注意ください。今後改善していきます。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="title-3">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#help-3" aria-expanded="true" aria-controls="help-3">
+          取得料金・更新料金が明らかにおかしいのですが？
+        </button>
+      </h5>
+    </div>
+    <div id="help-3" class="collapse" aria-labelledby="title-3" data-parent="#accordionHelp">
+      <div class="card-body">
+        大変申し訳ございません。プログラムのバグである可能性が非常に高いです。お手数ですが、お問い合わせページよりご報告いただけると幸いです。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="title-4">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#help-4" aria-expanded="true" aria-controls="help-4">
+          都道府県型のドメインには対応していますか？
+        </button>
+      </h5>
+    </div>
+    <div id="title-4" class="collapse" aria-labelledby="title-4" data-parent="#help">
+      <div class="card-body">
+        現時点では対応しておりません。検索は可能ですが、正確な料金ではありませんのでご注意ください。しかし、今後対応する予定がございますので、いましばらくお待ち下さい。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="title-5">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#help-5" aria-expanded="true" aria-controls="help-5">
+          意見やお問い合わせをしたいのですが？
+        </button>
+      </h5>
+    </div>
+    <div class="collapse" aria-labelledby="title-5" data-parent="#accordionHelp">
+      <div class="card-body">
+        お問い合わせページよりいただけると幸いです。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="title-6">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#help-6" aria-expanded="true" aria-controls="help-6">
+          使い方がよくわかりません。
+        </button>
+      </h5>
+    </div>
+    <div id="help-6" class="collapse" aria-labelledby="title-6" data-parent="#accordionHelp">
+      <div class="card-body">
+        トップページの検索欄に取得を希望されるドメイン名（ex google.co.jp）を入れて、パソコンのエンターキーまたは検索欄横の虫眼鏡をクリックすると検索が可能です。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="title-7">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#help-7" aria-expanded="true" aria-controls="help-7">
+          料金の更新頻度はどのくらいですか？
+        </button>
+      </h5>
+    </div>
+    <div id="help-7" class="collapse" aria-labelledby="title-7" data-parent="#accordionHelp">
+      <div class="card-body">
+        レジストラにより異なりますが、１日2〜3回程度です。多くは夜間に行っております。
+      </div>
+    </div>
+  </div>
+</div>

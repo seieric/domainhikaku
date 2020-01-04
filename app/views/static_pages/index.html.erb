@@ -9,15 +9,6 @@
     ※価格を保証するものではありません
   </small>
   <div class="col mx-auto">
-    <%= form_with(url: search_path, method: :get, local: true) do |form|%>
-      <div class="input-group input-group-lg">
-        <%= form.text_field :domain, placeholder: "ドメイン名で検索", class: "form-control" %>
-        <span class="input-group-append">
-          <%= form.button(type: :submit, name: nil, class: "btn btnMain") do %>
-            <i class="fas fa-search"></i>
-          <% end %>
-        </span>
-      </div>
-    <% end %>
+    <%= render 'search_form' %>
   </div>
 </div>
