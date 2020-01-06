@@ -27,7 +27,7 @@ module ApplicationHelper
   end
   def show_link(registrar)
     list = {
-      "onamae_com"    => "https://af.moshimo.com/af/c/click?a_id=1522047&p_id=109&pc_id=109&pl_id=2745&guid=ON",
+      "onamae_com"    => "https://www.onamae.com/",
       "x_domain"      => "https://www.xdomain.ne.jp/",
       "value_domain"  => "https://www.value-domain.com/",
       "muumuu_domain" => "https://muumuu-domain.com/"
