@@ -14,5 +14,6 @@
   <label for="message">お問い合わせ内容</label>
   <%= form.text_area :message, class: "form-control", id: "message" %>
 </div>
+<p>送信された情報は<%= link_to 'プライバシーポリシー', policy_path %>に基づき管理されます。</p>
 <%= form.submit '送信', class: "btn btnMain" %>
 <% end %>
