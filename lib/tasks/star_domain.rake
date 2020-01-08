@@ -34,10 +34,11 @@ namespace :star_domain do
       end
     end
 
-    prices = renewal.merge(registration) do |renew, regist|
+    prices = renewal.merge(registration) do |key, renew, regist|
       [regist, renew]
     end
 
+    p prices
     DataRegister.start(prices, 4)
   end
 end

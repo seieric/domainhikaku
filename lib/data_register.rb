@@ -1,6 +1,6 @@
 class DataRegister #各ユーザー定義タスクで使うデーターベース共通処理
   def self.start(hash, rgstr_no) #hashの構造=>{".com"=>[1200,1300]},rgstr=>Int
-    registrar = self.config(rgstr_no)
+    registrar = config(rgstr_no)
     hash.each do |domain, price|
       next unless price.is_a?(Array)  #配列じゃなければスキップ
       begin
@@ -14,7 +14,7 @@ class DataRegister #各ユーザー定義タスクで使うデーターベース
     end
   end
 
-  def config(int)
+  def self.config(int)
     registrars = [
       "x_domain",
       "value_domain",
@@ -24,4 +24,5 @@ class DataRegister #各ユーザー定義タスクで使うデーターベース
     ]
     registrars[int]
   end
+  private_class_method :config
 end
