@@ -5,8 +5,6 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
-# Use Puma as the app server
-gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -40,6 +38,8 @@ gem 'public_suffix'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  # Use Puma as the app server
+  gem 'puma', '~> 4.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -56,6 +56,8 @@ group :development do
 end
 
 group :production do
+  # Use Unicorn as the app server
+  gem 'unicorn'
   gem 'pg', '~> 1.1.4'
 end
 
