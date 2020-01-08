@@ -21,7 +21,8 @@ module ApplicationHelper
       "onamae_com"    => "お名前.com",
       "x_domain"      => "エックスドメイン",
       "value_domain"  => "バリュードメイン",
-      "muumuu_domain" => "ムームードメイン"
+      "muumuu_domain" => "ムームードメイン",
+      "star_domain"   => "スタードメイン"
     }
     list[registrar]
   end
@@ -30,7 +31,8 @@ module ApplicationHelper
       "onamae_com"    => "https://www.onamae.com/",
       "x_domain"      => "https://www.xdomain.ne.jp/",
       "value_domain"  => "https://www.value-domain.com/",
-      "muumuu_domain" => "https://muumuu-domain.com/"
+      "muumuu_domain" => "https://muumuu-domain.com/",
+      "star_domain"   => "https://www.star-domain.jp/"
     }
     list[registrar]
   end

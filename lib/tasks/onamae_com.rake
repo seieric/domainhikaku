@@ -58,8 +58,8 @@ namespace :onamae_com do
     prices = update_prices.merge(register_prices) do |key, update, register|
       [register, update]
     end
-    r = DataRegister.new
-    r.start(prices, 3)
+
+    DataRegister.start(prices, 3)
     agent.shutdown
     session.quit
   end

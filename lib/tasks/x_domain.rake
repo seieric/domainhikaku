@@ -33,7 +33,6 @@ namespace :x_domain do
       end
     end
     list = domain_list.zip(price_list).to_h
-    r = DataRegister.new
-    r.start(list, 0)
+    DataRegister.start(list, 0)
   end
 end
