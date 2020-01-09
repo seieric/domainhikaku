@@ -42,7 +42,6 @@ namespace :star_domain do
       [regist, renew]
     end
 
-    p prices
     DataRegister.start(prices, 4)
   end
 end
