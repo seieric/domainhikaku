@@ -5,6 +5,10 @@ namespace :star_domain do
     def format
       self.gsub(REG_EXP, "").gsub(",", "").strip.to_i
     end
+
+    def to_rep
+      self.gsub("(※取得条件)","").gsub("(ローマ字)", "").gsub("(日本語)","/ja-jp/").gsub("都道府県","/prefectures/")
+    end
   end
   task :get => :environment do
     agent = Mechanize.new
@@ -19,7 +23,7 @@ namespace :star_domain do
 
     records.each do |r|
       type = r.xpath("td[1]").text
-      domain = r.xpath("th").text
+      domain = r.xpath("th").text.to_rep
       price = r.xpath("td[2]").text.format
       if type.include?("取得") && type.include?("更新")
         renewal[domain] = price
