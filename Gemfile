@@ -61,6 +61,8 @@ group :production do
   # Use Unicorn as the app server
   gem 'unicorn'
   gem 'pg', '~> 1.1.4'
+  gem 'redis'
+  gem 'redis-rails'
 end
 
 group :test do

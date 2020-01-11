@@ -16,7 +16,9 @@ class ChartsController < ApplicationController
         @tld = "." + @domain.tld
       end
 
-      @prices = DomainPrice.where(domain: @tld)
+      @prices = Rails.cache.fetch("cache-#{@tld}", expired_in: 60.minutes) do
+        DomainPrice.where(domain: @tld).to_a
+      end
 
       data = []
       @prices.each_with_index do |p, i|
