@@ -1,5 +1,4 @@
 <head>
-  <%= render 'layouts/analytics' %>
   <title><%= full_title(yield(:title)) %></title>
   <% set_meta_tags description: yield(:description),og: {title: full_title(yield(:title))} %>
   <%= render 'layouts/favicon' %>
@@ -11,4 +10,6 @@
   <%= stylesheet_pack_tag 'application' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= render 'layouts/shim' %>
+  <%= canonical_tag %>
+  <%= render 'layouts/analytics' %>
 </head>
