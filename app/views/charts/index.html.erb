@@ -1,17 +1,22 @@
+<% if @domain.present? %>
 <h2><%= @domain %>の取得料金</h2>
 <span class="lead">
   「<%= @domain %>」は<%= if GoDaddy.is_available?(@domain.to_s) then "取得可能" else "取得不可" end %>
 </span>
+<% else %>
+<h2>「<%= @tld %>」<small class="text-muted">トップレベルドメイン(TLD)</small></h2>
+<% end %>
+
 <% if @prices.empty? %>
 <div class="lead">
   料金データはありませんでした
 </div>
 <% else %>
 <table class="table border rounded-lg tablePricing">
-  <p class="lead">「.<%= @domain.tld %>」の料金比較表</p>
+  <p class="lead">「<%= @tld %>」の料金比較表</p>
   <thead>
     <tr>
-      <th>ドメイン種類</th>
+      <th>レジストラ</th>
       <th>取得料金</th>
       <th>更新料金</th>
     </tr>
@@ -27,8 +32,9 @@
   </tbody>
 </table>
 <small>※この料金を保証するものではありません。目安としてご利用ください。</small>
-<p class="lead">今後5年間に支払う金額の目安</p>
-<div class="chart">
+<hr>
+<h3 claws="display-3">今後5年間に支払う総額の目安</h3>
+<div class="chart table-responsive">
   <%= line_chart @data %>
 </div>
 <% end %>

@@ -1,37 +1,44 @@
 class ChartsController < ApplicationController
   include PublicSuffix #mixin
   def index
-    if params[:domain].empty?
+    param = params[:domain]
+
+    if param.empty?
       redirect_to root_url
-      return
-    end
-    if PublicSuffix.valid?(params[:domain], default_rule: nil)
-      @domain = PublicSuffix.parse(params[:domain])
     else
-      @domain = params[:domain] + ".com"
-      @domain = PublicSuffix.parse(@domain)
-    end
-    tld = "." + @domain.tld
-    @prices = DomainPrice.where(domain: tld)
-    data = []
-    @prices.each_with_index do |p, i|
-      now = Date.today
-      data[i] = {now.strftime("%Y-%m-%d") => p.register_price}
-      tmp = Hash.new
-      (1..5).each do |j|
-        tmp[now.since(j.years).strftime("%Y-%m-%d")] = p.register_price + p.update_price * j
+      if PublicSuffix.valid?(param) #ドメイン名として有効か？
+        @domain = PublicSuffix.parse(param, ignore_private: true)
+        @tld = "." + @domain.tld
+      elsif param.start_with?(".") #TLDのみの入力か？
+        @tld = param
+      else
+        @domain = PublicSuffix.parse(param + ".com", ignore_private: true)
+        @tld = "." + @domain.tld
       end
 
-      tmp["name"] = view_context.show_registrar(p.registrar)
-      tmp["domain"] = p.domain
-      data[i].merge!(tmp)
-    end
-    @data = Array.new
-    data.each_with_index do |d, i|
-      name = "#{d["domain"]} | #{d["name"]} "
-      d.delete("name")
-      d.delete("domain")
-      @data << {name: name, data: d}
+      @prices = DomainPrice.where(domain: @tld)
+
+      data = []
+      @prices.each_with_index do |p, i|
+        now = Date.today
+
+        data[i] = {now.strftime("%Y-%m-%d") => p.register_price}
+        tmp = {}
+        (1..5).each do |j|
+          tmp[now.since(j.years).strftime("%Y-%m-%d")] = p.register_price + p.update_price * j
+        end
+
+        tmp["name"] = view_context.show_registrar(p.registrar)
+        tmp["domain"] = p.domain
+        data[i].merge!(tmp)
+      end
+      @data = []
+      data.each_with_index do |d, i|
+        name = "#{d["domain"]} | #{d["name"]} "
+        d.delete("name")
+        d.delete("domain")
+        @data << {name: name, data: d}
+      end
     end
   end
 end
