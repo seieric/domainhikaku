@@ -2,7 +2,7 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @base_title = "最安ドメイン検索"
+    @base_title = "最安ドメイン比較"
   end
   test "should get help" do
     get help_path

@@ -1,9 +1,11 @@
 <% if @domain.present? %>
+<% provide(:title, "「#{@domain}」の取得料金") %>
 <h2><%= @domain %>の取得料金</h2>
 <span class="lead">
   「<%= @domain %>」は<%= if GoDaddy.is_available?(@domain.to_s) then "取得可能" else "取得不可" end %>
 </span>
 <% else %>
+<% provide(:title, "「#{@tld}」トップレベルドメイン(TLD)") %>
 <h2>「<%= @tld %>」<small class="text-muted">トップレベルドメイン(TLD)</small></h2>
 <% end %>
 

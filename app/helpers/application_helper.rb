@@ -40,16 +40,16 @@ module ApplicationHelper
     domain.gsub("/prefectures/ja-jp/","(都道府県名日本語)").gsub("/prefectures/","(都道府県名)").gsub("/ja-jp/","(日本語)")
   end
 
-  def default_meta_tags(description = "", keywords = "")
+  def default_meta_tags
     {
       charset: 'utf-8',
-      description: description,
-      keywords: keywords,
+      description: "レジストラ５社のドメイン取得料金を一気に比較！業界最安値で独自ドメインを取得できます。取得可否から、取得料金、その後の更新費用までを簡単に検索・比較できます。さああなたも今すぐ比較！",
+      keywords: "ドメイン,料金,比較,価格",
       canonical: request.original_url,
       og: {
         site_name: '最安ドメイン比較',
-        title: full_title,
-        description: description,
+        title: "最安ドメイン比較",
+        description: "レジストラ５社のドメイン取得料金を一気に比較！業界最安値で独自ドメインを取得できます。取得可否から、取得料金、その後の更新費用までを簡単に検索・比較できます。さああなたも今すぐ比較！",
         type: 'website',
         url: request.original_url,
         image: image_url('card1.jpg'),
