@@ -45,7 +45,6 @@ module ApplicationHelper
       charset: 'utf-8',
       description: "レジストラ５社のドメイン取得料金を一気に比較！業界最安値で独自ドメインを取得できます。取得可否から、取得料金、その後の更新費用までを簡単に検索・比較できます。さああなたも今すぐ比較！",
       keywords: "ドメイン,料金,比較,価格",
-      canonical: request.original_url,
       og: {
         site_name: '最安ドメイン比較',
         title: "最安ドメイン比較",
