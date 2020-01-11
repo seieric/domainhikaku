@@ -30,6 +30,8 @@ gem 'simpleidn'
 gem 'chartkick'
 # ドメイン解析用
 gem 'public_suffix'
+# メタタグ生成
+gem 'meta-tags'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

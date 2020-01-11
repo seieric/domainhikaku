@@ -1,7 +1,7 @@
 module ApplicationHelper
   #<title>タグ内に入れるタイトルを生成
   def full_title(page_title = "")
-    base_title = "最安ドメイン検索"
+    base_title = "最安ドメイン比較"
 
     if page_title.empty?
       base_title
@@ -38,5 +38,27 @@ module ApplicationHelper
   end
   def show_domain(domain)
     domain.gsub("/prefectures/ja-jp/","(都道府県名日本語)").gsub("/prefectures/","(都道府県名)").gsub("/ja-jp/","(日本語)")
+  end
+
+  def default_meta_tags(description = "", keywords = "")
+    {
+      charset: 'utf-8',
+      description: description,
+      keywords: keywords,
+      canonical: request.original_url,
+      og: {
+        site_name: '最安ドメイン比較',
+        title: full_title,
+        description: description,
+        type: 'website',
+        url: request.original_url,
+        image: image_url('card1.jpg'),
+        locale: 'ja_JP',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@saiyasu_domain',
+      }
+    }
   end
 end
