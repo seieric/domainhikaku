@@ -17,6 +17,7 @@ module Domainhikaku
 
     config.i18n.default_locale = :ja #日本語をデフォルトに
 
+    config.action_controller.default_url_options = { trailing_slash: true } #URl末尾には/
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
