@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc><%= @site_domain %></loc>
-      <lastmod><%= "#{@today.year}-#{@today.month}-01" %></lastmod>
+      <lastmod><%= monthly %></lastmod>
       <changefreq>monthly</changefreq>
    </url>
    <url>
       <loc><%= @site_domain %>/about/</loc>
-      <lastmod><%= "#{@today.year}-#{@today.month}-01" %></lastmod>
+      <lastmod><%= monthly %></lastmod>
       <changefreq>monthly</changefreq>
    </url>
    <url>
      <loc><%= @site_domain %>/help/</loc>
-     <lastmod><%= "#{@today.year}-#{@today.month}-01" %></lastmod>
+     <lastmod><%= monthly %></lastmod>
      <changefreq>monthly</changefreq>
    </url>
    <url>
       <loc><%= @site_domain %>/prices/</loc>
-      <lastmod><%= @today - 1 %></lastmod>
+      <lastmod><%= daily %></lastmod>
       <changefreq>daily</changefreq>
    </url>
    <url>
       <loc><%= @site_domain %>/terms/</loc>
-      <lastmod><%= "#{@today.year}-01-01" %></lastmod>
+      <lastmod><%= yearly %></lastmod>
       <changefreq>yearly</changefreq>
    </url>
    <url>
       <loc><%= @site_domain %>/policy/</loc>
-      <lastmod><%= "#{@today.year}-#{@today.month}-01" %></lastmod>
+      <lastmod><%= monthly %></lastmod>
       <changefreq>monthly</changefreq>
    </url>
    <url>
       <loc><%= @site_domain %>/contacts/</loc>
-      <lastmod><%= "#{@today.year}-01-01" %></lastmod>
+      <lastmod><%= yearly %></lastmod>
       <changefreq>yearly</changefreq>
    </url>
    <% @domains.each do |domain| %>
     <url>
       <loc><%= "#{@site_domain}/search/?domain=#{domain.domain}" %></loc>
-      <lastmod><%= @today - 1 %></lastmod>
+      <lastmod><%= daily %></lastmod>
       <changefreq>daily</changefreq>
     </url>
    <% end %>
