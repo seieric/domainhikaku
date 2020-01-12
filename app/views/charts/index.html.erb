@@ -1,10 +1,12 @@
 <% if @domain.present? %>
+<% provide(:descriptions, "レジストラのごとの「#{@domain}」の取得料金一覧です。お名前.com・スタードメイン・エックスドメイン・ムームードメイン・バリュードメインでの最新価格で比較できるから、最安値で取得できる。取得可能ドメインの検索から、レジストラの選定まですべてここで完結！") %>
 <% provide(:title, "「#{@domain}」の取得料金") %>
 <h2><%= @domain %>の取得料金</h2>
 <span class="lead">
   「<%= @domain %>」は<%= if GoDaddy.is_available?(@domain.to_s) then "取得可能" else "取得不可" end %>
 </span>
 <% else %>
+<% provide(:descriptions, "レジストラのごとの「#{@tld}」の取得料金一覧です。お名前.com・スタードメイン・エックスドメイン・ムームードメイン・バリュードメインでの最新価格で比較できるから、最安値で取得できる。取得可能ドメインの検索から、レジストラの選定まですべてここで完結！") %>
 <% provide(:title, "「#{@tld}」トップレベルドメイン(TLD)") %>
 <h2>「<%= @tld %>」<small class="text-muted">トップレベルドメイン(TLD)</small></h2>
 <% end %>
