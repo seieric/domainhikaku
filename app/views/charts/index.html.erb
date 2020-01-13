@@ -29,8 +29,8 @@
     <% @prices.each do |p| %>
     <tr>
       <td><%= link_to show_registrar(p.registrar), show_link(p.registrar), rel: :nofollow %></td>
-      <td><%= p.register_price.to_s(:delimited) %>円</td>
-      <td><%= p.update_price.to_s(:delimited) %>円</td>
+      <%= raw show_price_regist(p.register_price) %>
+      <%= raw show_price_renewal(p.update_price) %>
     </tr>
     <% end %>
   </tbody>

@@ -16,11 +16,13 @@ class ChartsController < ApplicationController
         @tld = "." + @domain.tld
       end
 
-      @prices = Rails.cache.fetch("cache-#{@tld}", expired_in: 60.minutes) do
+      @prices = Rails.cache.fetch("cache-#{@tld}", expired_in: 120.minutes) do
         DomainPrice.where(domain: @tld).to_a
       end
 
       data = []
+      @min_regist = @prices[0].register_price
+      @min_renewal = @prices[0].update_price
       @prices.each_with_index do |p, i|
         now = Date.today
 
@@ -33,6 +35,9 @@ class ChartsController < ApplicationController
         tmp["name"] = view_context.show_registrar(p.registrar)
         tmp["domain"] = p.domain
         data[i].merge!(tmp)
+
+        @min_regist = p.register_price if p.register_price < @min_regist
+        @min_renewal = p.update_price if p.update_price < @min_renewal
       end
       @data = []
       data.each_with_index do |d, i|

@@ -26,3 +26,13 @@ footer{
 .tablePricing{
   width: auto;
 }
+.cheapest{
+  color: red;
+  font-weight: bold;
+}
+.cheapest::after{
+  content: "（最安）";
+  color: red;
+  font-weight: normal;
+  font-size: small;
+}
