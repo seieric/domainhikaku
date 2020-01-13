@@ -1,0 +1,28 @@
+.default-error-page{
+  text-align: center;
+  background-color: #f0fff0;
+  font-family: Arial, sans-serif;
+}
+.error-title{
+  color: #32cd32;
+  font-size: 55px;
+  font-weight: bold;
+}
+.error-message{
+  font-size: 25px;
+}
+a{
+  font-size: 20px;
+  text-decoration: none;
+  color: #31cccc;
+}
+a:hover{
+  color: #32cd32;
+}
+.copy-right{
+  color: #696969;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+}
