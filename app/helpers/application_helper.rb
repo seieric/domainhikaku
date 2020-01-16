@@ -50,7 +50,6 @@ module ApplicationHelper
         title: "最安ドメイン比較",
         description: "レジストラ５社のドメイン取得料金を一気に比較！業界最安値で独自ドメインを取得できます。取得可否から、取得料金、その後の更新費用までを簡単に検索・比較できます。さああなたも今すぐ比較！",
         type: 'website',
-        url: request.original_url,
         image: image_url('card1.jpg'),
         locale: 'ja_JP',
       },
