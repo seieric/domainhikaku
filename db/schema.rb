@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_110340) do
+ActiveRecord::Schema.define(version: 2020_01_20_083632) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "email"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_01_13_110340) do
 
   create_table "domain_prices", force: :cascade do |t|
     t.string "domain"
-    t.integer "register_price"
-    t.integer "update_price"
+    t.integer "registration_price"
+    t.integer "renewal_price"
     t.string "registrar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

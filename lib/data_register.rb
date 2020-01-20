@@ -14,6 +14,8 @@ class DataRegister #各ユーザー定義タスクで使うデーターベース
     end
   end
 
+  def self.add(domain, language = "en", )
+
   def self.config(int)
     registrars = [
       "x_domain",
