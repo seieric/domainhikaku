@@ -10,38 +10,35 @@ namespace :star_domain do
       self.gsub("(※取得条件)","").gsub("(ローマ字)", "").gsub("(日本語)","/ja-jp/").gsub("都道府県","/prefectures/")
     end
   end
+
   task :get => :environment do
-    agent = Mechanize.new
-    page = agent.get("https://www.star-domain.jp/price/")
+    page = Crawler.page("https://www.star-domain.jp/price/")
+
     records = page.search("table tr")
-    agent.shutdown
-
     records = records.slice(1..-1) #見出し行を削除
-
-    renewal = {} #更新料金
-    registration = {} #取得料金
 
     records.each do |r|
       type = r.xpath("td[1]").text
       domain = r.xpath("th").text.to_rep
       price = r.xpath("td[2]").text.format
       if type.include?("取得") && type.include?("更新")
-        renewal[domain] = price
-        registration[domain] = price
+        renewal = price
+        registration = price
       elsif type.include?("取得")
-        registration[domain] = price
+        tmp_price = price #取得料金をtmp_priceに保存
+        tmp_domain = domain #更新料金をtmp_domainに保存
+        next #次のレコードへ
       elsif type.include?("更新")
-        if domain.empty?
-          next if registration.keys.last == renewal.keys.last
-          renewal[registration.keys.last] = price
+        if domain.empty? && tmp_domain == domain
+          renewal = price
+          registration = tmp_price
+        else
+          next
         end
       end
-    end
 
-    prices = renewal.merge(registration) do |key, renew, regist|
-      [regist, renew]
+      Crawler.quit!
+      DataRegister.add(domain, registration, renewal, 4)
     end
-
-    DataRegister.start(prices, 4)
   end
 end
