@@ -7,7 +7,7 @@ namespace :star_domain do
     end
 
     def to_rep
-      self.gsub("(※取得条件)","").gsub("(ローマ字)", "").gsub("(日本語)","/ja-jp/").gsub("都道府県","/prefectures/")
+      self.gsub("(※取得条件)","").gsub("(ローマ字)", "").gsub("(日本語)","").gsub("都道府県","")
     end
   end
 
@@ -17,9 +17,18 @@ namespace :star_domain do
     records = page.search("table tr")
     records = records.slice(1..-1) #見出し行を削除
 
+    Crawler.quit!
+
     records.each do |r|
       type = r.xpath("td[1]").text
-      domain = r.xpath("th").text.to_rep
+      th = r.xpath("th").text
+      if th.include?("日本語") #日本語ドメインを指定
+        lang = "ja"
+      else
+        lang = "en"
+      end
+      next if th.include?("都道府県") #都道府県ドメインは登録しない
+      domain = th.to_rep
       price = r.xpath("td[2]").text.format
       if type.include?("取得") && type.include?("更新")
         renewal = price
@@ -37,8 +46,7 @@ namespace :star_domain do
         end
       end
 
-      Crawler.quit!
-      DataRegister.add(domain, registration, renewal, 4)
+      DataRegister.add(domain, lang, registration, renewal, 4)
     end
   end
 end
