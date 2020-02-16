@@ -21,23 +21,23 @@ class ChartsController < ApplicationController
       end
 
       data = []
-      @min_regist = @prices[0].register_price
-      @min_renewal = @prices[0].update_price
+      @min_regist = @prices[0].registration_price
+      @min_renewal = @prices[0].renewal_price
       @prices.each_with_index do |p, i|
         now = Date.today
 
-        data[i] = {now.strftime("%Y-%m-%d") => p.register_price}
+        data[i] = {now.strftime("%Y-%m-%d") => p.registration_price}
         tmp = {}
         (1..5).each do |j|
-          tmp[now.since(j.years).strftime("%Y-%m-%d")] = p.register_price + p.update_price * j
+          tmp[now.since(j.years).strftime("%Y-%m-%d")] = p.registration_price + p.renewal_price * j
         end
 
         tmp["name"] = view_context.show_registrar(p.registrar)
         tmp["domain"] = p.domain
         data[i].merge!(tmp)
 
-        @min_regist = p.register_price if p.register_price < @min_regist
-        @min_renewal = p.update_price if p.update_price < @min_renewal
+        @min_regist = p.registration_price if p.registration_price < @min_regist
+        @min_renewal = p.renewal_price if p.renewal_price < @min_renewal
       end
       @data = []
       data.each_with_index do |d, i|

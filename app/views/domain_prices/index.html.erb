@@ -23,8 +23,8 @@
       <% @price.each do |p|%>
       <tr>
         <th scope="row" class="th-dom"><%= show_domain(p.domain) %></th>
-        <td class="td-price"><%= p.register_price.to_s(:delimited) %>円</td>
-        <td class="td-price"><%= p.update_price.to_s(:delimited) %>円</td>
+        <td class="td-price"><%= p.registration_price.to_s(:delimited) %>円</td>
+        <td class="td-price"><%= p.renewal_price.to_s(:delimited) %>円</td>
         <td class="td-rgstr"><%= link_to show_registrar(p.registrar), show_link(p.registrar), rel: :nofollow %></td>
       </tr>
       <% end %>
