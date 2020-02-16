@@ -2,9 +2,7 @@ namespace :x_domain do
   desc "Xdomainから料金を取得"
 
   task :get => :environment do
-    agent = Mechanize.new
-    agent.user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
-    page = agent.get("https://www.xdomain.ne.jp/domain/price.php")
+    page = Crawler.page("https://www.xdomain.ne.jp/domain/price.php")
 
     prices =  page.search("#domainPriceTable td.price_td")
     domains =  page.search("#domainPriceTable th.sub_th")
