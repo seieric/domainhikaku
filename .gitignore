@@ -38,5 +38,5 @@ yarn-debug.log*
 # User Settings
 /.etc
 /.idea
-/.generators
-/.rakeTasks
+.rakeTasks
+.generators
