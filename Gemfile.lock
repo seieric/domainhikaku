@@ -255,7 +255,7 @@ PLATFORMS
   x86_64-darwin-19
 
 DEPENDENCIES
-  bootsnap (>= 1.4.2)
+  bootsnap
   byebug
   canonical-rails
   capybara (>= 2.15)
