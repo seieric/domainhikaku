@@ -1,44 +1,49 @@
-<% if @domain.present? %>
-<% provide(:descriptions, "レジストラのごとの「#{@domain}」の取得料金一覧です。お名前.com・スタードメイン・エックスドメイン・ムームードメイン・バリュードメインでの最新価格で比較できるから、最安値で取得できる。取得可能ドメインの検索から、レジストラの選定まですべてここで完結！") %>
-<% provide(:title, "「#{@domain}」の取得料金") %>
-<h2><%= @domain %>の取得料金</h2>
-<span class="lead">
-  「<%= @domain %>」は<%= if GoDaddy.is_available?(@domain.to_s) then "取得可能" else "取得不可" end %>
-</span>
-<% else %>
-<% provide(:descriptions, "レジストラのごとの「#{@tld}」の取得料金一覧です。お名前.com・スタードメイン・エックスドメイン・ムームードメイン・バリュードメインでの最新価格で比較できるから、最安値で取得できる。取得可能ドメインの検索から、レジストラの選定まですべてここで完結！") %>
-<% provide(:title, "「#{@tld}」トップレベルドメイン(TLD)") %>
-<h2>「<%= @tld %>」<small class="text-muted">トップレベルドメイン(TLD)</small></h2>
-<% end %>
-
 <% if @prices.empty? %>
-<div class="lead">
+<p class="lead">
   料金データはありませんでした
-</div>
+</p>
 <% else %>
-<table class="table border rounded-lg tablePricing">
-  <p class="lead">「<%= @tld %>」の料金比較表</p>
-  <thead>
-    <tr>
-      <th>レジストラ</th>
-      <th>取得料金</th>
-      <th>更新料金</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @prices.each do |p| %>
-    <tr>
-      <td><%= link_to show_registrar(p.registrar), show_link(p.registrar), rel: :nofollow %></td>
-      <%= raw show_price_regist(p.registration_price) %>
-      <%= raw show_price_renewal(p.renewal_price) %>
-    </tr>
+<div class="row">
+  <div class="col-sm-5">
+    <% if @domain.present? %>
+    <% provide(:descriptions, "レジストラのごとの「#{@domain}」の取得料金一覧です。お名前.com・スタードメイン・エックスドメイン・ムームードメイン・バリュードメインでの最新価格で比較できるから、最安値で取得できる。取得可能ドメインの検索から、レジストラの選定まですべてここで完結！") %>
+    <% provide(:title, "「#{@domain}」の取得料金") %>
+    <h2><%= @domain %>の取得料金</h2>
+    <p class="lead">
+      「<%= @domain %>」は<%= if GoDaddy.is_available?(@domain.to_s) then "取得可能" else "取得不可" end %>
+    </p>
+    <% else %>
+    <% provide(:descriptions, "レジストラのごとの「#{@tld}」の取得料金一覧です。お名前.com・スタードメイン・エックスドメイン・ムームードメイン・バリュードメインでの最新価格で比較できるから、最安値で取得できる。取得可能ドメインの検索から、レジストラの選定まですべてここで完結！") %>
+    <% provide(:title, "「#{@tld}」トップレベルドメイン(TLD)") %>
+    <h2>「<%= @tld %>」<small class="text-muted">トップレベルドメイン(TLD)</small></h2>
     <% end %>
-  </tbody>
-</table>
-<small>※この料金を保証するものではありません。目安としてご利用ください。</small>
-<hr>
-<h3 claws="display-3">今後5年間に支払う総額の目安</h3>
-<div class="chart table-responsive">
-  <%= line_chart @data %>
+
+    <table class="table border rounded-lg tablePricing">
+      <p class="lead">「<%= @tld %>」の料金比較表</p>
+      <thead>
+        <tr>
+          <th>レジストラ</th>
+          <th>取得料金</th>
+          <th>更新料金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @prices.each do |p| %>
+        <tr>
+          <td><%= link_to show_registrar(p.registrar), show_link(p.registrar), rel: :nofollow %></td>
+          <%= raw show_price_regist(p.registration_price) %>
+          <%= raw show_price_renewal(p.renewal_price) %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <small>※この料金を保証するものではありません。目安としてご利用ください。</small>
+  </div>
+  <div class="col-sm-7">
+    <h3 claws="display-3">今後5年間に支払う総額の目安</h3>
+    <div class="chart table-responsive">
+      <%= line_chart @data %>
+    </div>
+  </div>
 </div>
 <% end %>

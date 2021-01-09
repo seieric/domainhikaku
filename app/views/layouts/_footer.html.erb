@@ -1,11 +1,11 @@
 <footer class="footer mt-auto">
-  <nav class="navbar navbar-light">
-    <div class="navbar-nav">
-      <%= link_to "About", about_path, class: "nav-link nav-item" %>
-      <%= link_to "利用規約", terms_path, class: "nav-link nav-item" %>
-      <%= link_to "プライバシーポリシー", policy_path, class: "nav-link nav-item" %>
-      <%= link_to "お問い合わせ", contacts_path, class: "nav-link nav-item" %>
-      <small class="navbar-text">&copy; 2020 最安ドメイン比較</small>
-    </div>
-  </nav>
+  <div class="container">
+    <ul class="footer-links">
+      <li><%= link_to "About", about_path, class: "nav-link nav-item" %></li>
+      <li><%= link_to "利用規約", terms_path, class: "nav-link nav-item" %></li>
+      <li><%= link_to "プライバシーポリシー", policy_path, class: "nav-link nav-item" %></li>
+      <li><%= link_to "お問い合わせ", contacts_path, class: "nav-link nav-item" %></li>
+    </ul>
+    <small class="text-muted">&copy; <%= Date.today.year %> 最安ドメイン比較</small>
+  </div>
 </footer>
