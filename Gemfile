@@ -65,6 +65,7 @@ group :production do
   gem 'unicorn'
   gem 'pg', '~> 1.1.4'
   gem 'dalli'
+  gem 'rspec-rails'
 end
 
 group :test do
